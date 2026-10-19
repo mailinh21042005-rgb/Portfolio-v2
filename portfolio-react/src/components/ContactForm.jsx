@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function ContactForm() {
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   function update(e) {
     const { name, value } = e.target;
@@ -18,6 +18,9 @@ export default function ContactForm() {
     }
     if (!form.email.includes('@')) {
       next.email = 'Email chưa hợp lệ';
+    }
+    if (!form.message.trim().length < 10) {
+        next.message = 'Tin nhắn phải có ít nhất 10 ký tự';
     }
     setErrors(next);
     setSent(Object.keys(next).length === 0);
@@ -36,6 +39,18 @@ export default function ContactForm() {
              value={form.email} onChange={update} />
         {errors.email && (
             <p className="error">{errors.email}</p>
+        )}
+        <label htmlFor="message">Tin nhắn</label>
+        <textarea
+        id="message"
+        name="message"
+        value={form.message}
+        onChange={update}
+        rows={5}
+        placeholder="Nhập tin nhắn của bạn..."
+        />
+        {errors.message && (
+        <p className="error">{errors.message}</p>
         )}
         <button className="button">Gửi</button>
         {sent && <p className="ok">Đã gửi. Cảm ơn bạn!</p>}

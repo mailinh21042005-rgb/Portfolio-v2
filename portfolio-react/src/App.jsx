@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { projects } from './data/projects.js';
+import Header from './components/Header.jsx';
+import Hero from './components/Hero.jsx';
 import ProjectList from './components/ProjectList.jsx';
 import TagFilter from './components/TagFilter.jsx';
 import ContactForm from './components/ContactForm';
@@ -12,7 +14,8 @@ export default function App() {
     : projects.filter((p) => p.tags.includes(activeTag));
   return (
     <main className="container">
-      <h1>Dự án của mình</h1>
+      <Header />
+      <Hero />
       <TagFilter
         tags={tags}
         activeTag={activeTag}
@@ -30,4 +33,3 @@ export default function App() {
 const tags = [...new Set(
   projects.flatMap((p) => p.tags),
 )];
-

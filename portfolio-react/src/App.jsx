@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { projects } from './data/projects.js';
 import ProjectList from './components/ProjectList.jsx';
 import TagFilter from './components/TagFilter.jsx';
+import ContactForm from './components/ContactForm';
 import './index.css';
 
 export default function App() {
@@ -18,6 +19,10 @@ export default function App() {
         onChange={setActiveTag}
       />
       <ProjectList projects={shown} />
+      <section id="contact"> 
+        <h2>Liên hệ với mình</h2>
+        <ContactForm />
+      </section>
     </main>
   );
 }

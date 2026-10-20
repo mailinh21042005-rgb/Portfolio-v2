@@ -6,10 +6,13 @@ import ProjectList from './components/ProjectList.jsx';
 import TagFilter from './components/TagFilter.jsx';
 import ContactForm from './components/ContactForm';
 import './index.css';
+import { Clock } from './Clock.jsx';
+
 
 export default function App() {
   const [activeTag, setActiveTag] = useState('all');
   const [query, setQuery] = useState('');
+  const [showClock, setShowClock] = useState(true);
   const normalizedQuery = query.trim().toLowerCase();
   const shown = projects.filter((p) => {
     const matchesTag =
@@ -25,6 +28,10 @@ export default function App() {
     <main className="container">
       <Header />
       <Hero />
+      <button onClick={() => setShowClock(!showClock)}>
+        showClock: {showClock ? 'ON' : 'OFF'}
+      </button>
+      {showClock && <Clock />}
       <input
         type="search"
         value={query}

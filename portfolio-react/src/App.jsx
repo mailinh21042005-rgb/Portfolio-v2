@@ -7,7 +7,7 @@ import TagFilter from './components/TagFilter.jsx';
 import ContactForm from './components/ContactForm';
 import './index.css';
 import { Clock } from './Clock.jsx';
-
+import { GitHubRepos } from './components/GithubRepos.jsx';
 
 export default function App() {
   const [activeTag, setActiveTag] = useState('all');
@@ -52,6 +52,10 @@ export default function App() {
       ) : (
         <p>Không tìm thấy dự án phù hợp.</p>
       )}
+      <section id="github">
+        <h2>Repo GitHub</h2>
+        <GitHubRepos username="mailinh21042005-rgb" />
+      </section>
       <section id="contact"> 
         <h2>Liên hệ với mình</h2>
         <ContactForm />

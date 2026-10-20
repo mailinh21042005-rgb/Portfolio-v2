@@ -399,6 +399,8 @@ textarea::placeholder {
   object-fit: contain;
 }
 
+.skeleton { height: 3rem; margin: .5rem 0; background: #e2e8f0; }
+
 .floating-btn:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);

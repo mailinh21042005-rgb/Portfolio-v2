@@ -9,5 +9,3 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
-
-getRepos("mailinh21042005-rgb").then(console.log)

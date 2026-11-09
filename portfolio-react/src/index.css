@@ -41,6 +41,11 @@ textarea {
   outline-offset: 3px;
 }
 
+dialog::backdrop {
+  background-color: rgb(15 23 42 / 45%);
+  backdrop-filter: blur(4px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
